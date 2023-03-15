@@ -9,6 +9,7 @@ class Post extends Model
 {
     use HasFactory;
     
+
     protected $fillable = [
         'title',
         'spot',
@@ -21,5 +22,6 @@ class Post extends Model
     public function getPaginateByLimit(int $limit_coumt = 5)
     {
         return $this->orderBy('updated_at','DESC')->paginate($limit_coumt);
+
     }
 }
