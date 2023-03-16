@@ -24,12 +24,10 @@
                 <textarea name="post[body]" placeholder="今日も1日お疲れさまでした。"></textarea>
             </div>
             
-            
-            
-            
-            
-            
-            
+            <div class="schedule">
+                <h2>schedule</h2>
+                <input type="datetime-local" name="post[schedule]"/>
+            </div>
             
             
             <input type="submit" value="store"/>
