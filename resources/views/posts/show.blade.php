@@ -17,6 +17,7 @@
        <div class='content'>
            <div class='content_post'>
                <h3 class='spot'>{{ $post->spot }}</h3> 
+               <h3 class='schedule'>{{ $post->schedule }}</h3> 
                <h3>本文</h3>
                <p class='body'>{{ $post->body }}</p>
            </div>
