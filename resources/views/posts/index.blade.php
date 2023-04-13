@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Blog</title>
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
+    
+    <x-app-layout>
+        <x-slot name="header">
+    
+            <head>
+                <x-slot name="header">
+                    ここにはヘッダー
+                    <meta charset="utf-8">
+                    <title>Blog</title>
+                    <!-- Fonts -->
+                    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+                    </x-slot>
+            </head>
+        
+        
+        
     <body>
         <h1>Blog Name</h1>
         <a href='/posts/create'>create</a>
@@ -36,5 +46,7 @@
             {{ $posts->links() }}
         </div>
     </body>
+    
+    </x-app-layout>
 </html>
 
