@@ -34,6 +34,7 @@ Route::get('/posts/create', [PostController::class, 'create'])->name('create');
 Route::post('/posts', [PostController::class, 'store']);
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('show');
 Route::get('/search', [PostController::class, 'search']);
+Route::get('/schedule', [PostController::class, 'schedule']);
 
 
 require __DIR__.'/auth.php';
