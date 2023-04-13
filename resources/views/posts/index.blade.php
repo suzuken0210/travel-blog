@@ -26,10 +26,17 @@
           <input type="submit" value="検索">
         </form>
         
-        <form method="get" action="/schedule">
-          <input type="datetime-local" name="schedule">
-          <input type="submit" value="検索">
-        </form>
+        
+          {{--　<input type="datetime-local" name="schedule">　--}}
+            <form action="/schedule" method="get">
+                <label for="from">from:</label>
+                <input type="date" name="from" id="from" required>
+                <label for="until">until:</label>
+                <input type="date" name="until" id="until" required>
+                <button type="submit">Search</button>
+            </form>
+            
+          
         
         <div class='posts'>
             @foreach ($posts as $post)
@@ -39,6 +46,7 @@
                     <h3 class='spot'>{{ $post->spot }}</h3> 
                     <h3 class='schedule'>{{ $post->schedule }}</h3> 
                     <p class='body'>{{ $post->body }}</p>
+                    <img src="{{ $post->image_url }}" alt="画像が読み込めません。" width="10%" height="10%" />
                 </div>
             @endforeach
         </div>

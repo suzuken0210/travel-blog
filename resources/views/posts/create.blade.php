@@ -10,7 +10,7 @@
         <x-app-layout>
         <body>
             <h1>Blog Name</h1>
-            <form action="/posts" method="POST">
+            <form action="/posts" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="title">
                     <h2>Title</h2>
@@ -32,6 +32,9 @@
                     <input type="datetime-local" name="post[schedule]"/>
                 </div>
                 
+                <div class="image">
+                <input type="file" name="image">
+                </div>
                 
                 <input type="submit" value="store"/>
             </form>

@@ -16,6 +16,7 @@ class Post extends Model
         'body',
         'date',
         'schedule',
+        'image_url', 
         'id'
     ];
     
