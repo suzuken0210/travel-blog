@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Cloudinary;
+use GuzzleHttp\Client;
 
 class PostController extends Controller
 {
@@ -21,6 +22,12 @@ class PostController extends Controller
     public function create()
     {
         return view('posts/create');
+        
+    
+        // return view('posts.create', [
+        //     'post' => new Post(),
+        // ]);
+    
     }
     
     public function store(Request $request, Post $post)
@@ -48,5 +55,19 @@ class PostController extends Controller
         return view('posts/index')->with(['posts' => $schedule, 'from' => $from , 'until' => $until]); 
         
     }
+    
+    public function myPosts()
+    {
+        $user_id = auth()->id();
+        $posts = Post::where('user_id', $user_id)->paginate(5);
+        return view('posts/mypage', ['posts' => $posts]);
+    }
+    
+    // public function mypage()
+    // {
+    //     $user = auth()->user();
+    //     $posts = $user->posts;
+    //     return view('mypage', compact('user', 'posts'));
+    // }
     
 }
