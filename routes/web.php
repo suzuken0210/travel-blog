@@ -35,6 +35,10 @@ Route::post('/posts', [PostController::class, 'store']);
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('show');
 Route::get('/search', [PostController::class, 'search']);
 Route::get('/schedule', [PostController::class, 'schedule']);
+// Route::post('/posts/geocode', [PostController::class, 'geocode'])->name('posts.geocode');
+Route::get('/mypage', [App\Http\Controllers\PostController::class, 'myPosts'])->middleware(['auth'])->name('mypage');
+// Route::get('/mypage', [PostController::class, 'mypage'])->name('mypage');
+
 
 
 require __DIR__.'/auth.php';

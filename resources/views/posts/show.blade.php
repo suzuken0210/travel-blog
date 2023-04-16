@@ -26,6 +26,21 @@
            <div>
                 <img src="{{ $post->image_url }}" alt="画像が読み込めません。" width="10%" height="10%" />
             </div>
+            
+	        
+	        <div id="map" style="height:500px"></div>
+	        <script>const point = @json($post->spot)</script>
+            <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyD78I3Ml7kn4VE3LOYXiuzTCNftEeoD5Lw&callback=initgeocoder" async defer></script>
+            </script>
+            
+            <script src="{{ asset('/js/map.js')}}">
+                
+            </script>
+             
+    
+	        
+
+	        
        </div>
        <div class='footer'>
            <a href="/">戻る</a>
