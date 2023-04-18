@@ -17,12 +17,17 @@ class Post extends Model
         'date',
         'schedule',
         'image_url', 
-        'id'
+        'user_id'
     ];
     
     public function getPaginateByLimit(int $limit_coumt = 5)
     {
         return $this->orderBy('updated_at','DESC')->paginate($limit_coumt);
 
+    }
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

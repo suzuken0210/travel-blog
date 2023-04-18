@@ -30,7 +30,7 @@
 	        
 	        <div id="map" style="height:500px"></div>
 	        <script>const point = @json($post->spot)</script>
-            <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyD78I3Ml7kn4VE3LOYXiuzTCNftEeoD5Lw&callback=initgeocoder" async defer></script>
+            <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyC96c6lhvoTpYKKm-hU2Ug89Lkvz0lipLQ&callback=initgeocoder" async defer></script>
             </script>
             
             <script src="{{ asset('/js/map.js')}}">
