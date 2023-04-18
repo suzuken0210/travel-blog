@@ -6,16 +6,20 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Cloudinary;
 use GuzzleHttp\Client;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
     public function index(Post $post)
     {
+        // dd($post);
         return view('posts/index')->with(['posts' => $post->getPaginateByLimit(3)]); 
     }
     
     public function show(Post $post)
     {
+        // dd($post);
         return view('posts/show')->with(['post' => $post]);
     }
     
@@ -32,6 +36,7 @@ class PostController extends Controller
     
     public function store(Request $request, Post $post)
     {
+        $post->user_id = \Auth::id();
         $input = $request['post'];
         $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
         $input += ['image_url' => $image_url];
@@ -56,10 +61,13 @@ class PostController extends Controller
         
     }
     
-    public function myPosts()
+    
+    public function mypage(Post $post)
     {
-        $user_id = auth()->id();
-        $posts = Post::where('user_id', $user_id)->paginate(5);
+        $user_id = Auth()->id();
+        $posts = Post::where('user_id', $user_id)->get();
+        
+        // dd($user);
         return view('posts/mypage', ['posts' => $posts]);
     }
     

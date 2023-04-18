@@ -40,15 +40,26 @@
         
         <div class='posts'>
             @foreach ($posts as $post)
-                <!--<div class='post'>-->
-                    
-                    
-                <li>{{ $post->title }}</li>
+                <div class='post'>
+                    <h1 class='title'>
+                       <a href="/posts/{{ $post->id }}"><h2 class='title'>{{ $post->title }}</h2></a>
+                   </h1>
+                    <h3 class='spot'>{{ $post->spot }}</h3> 
+                   <h3 class='schedule'>{{ $post->schedule }}</h3> 
+                   <h3>本文</h3>
+                   <p class='body'>{{ $post->body }}</p>
+               </div>
+           <div>
+                <img src="{{ $post->image_url }}" alt="画像が読み込めません。" width="10%" height="10%" />
+            </div>
+                   
+                </div>
             @endforeach
         </div>
-        <div class='paginate'>
-            {{ $posts->links() }}
-        </div>
+        
+        
+        
+
     </body>
     
     </x-app-layout>
