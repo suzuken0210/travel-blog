@@ -22,7 +22,10 @@
                     <input type="text" name="post[spot]" placeholder="tokyo"/>
                 </div>
                 
-                
+                <!--<div class="spot">-->
+                <!--    <h2>spot</h2>-->
+                <!--    <input type="text" name="post[spot]" placeholder="tokyo"/>-->
+                <!--</div>-->
                 
                 <div class="body">
                     <h2>Body</h2>
