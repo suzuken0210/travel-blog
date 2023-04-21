@@ -1,5 +1,6 @@
 <?php
 
+// namespace App\Models\Places;
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,7 +18,8 @@ class Post extends Model
         'date',
         'schedule',
         'image_url', 
-        'user_id'
+        'user_id',
+        'address'
     ];
     
     public function getPaginateByLimit(int $limit_coumt = 5)
@@ -29,5 +31,10 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    
+    public function places()
+    {
+        return $this->belongsToMany(Place::class);
     }
 }
