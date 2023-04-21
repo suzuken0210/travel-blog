@@ -22,10 +22,19 @@
                     <input type="text" name="post[spot]" placeholder="tokyo"/>
                 </div>
                 
-                <!--<div class="spot">-->
-                <!--    <h2>spot</h2>-->
-                <!--    <input type="text" name="post[spot]" placeholder="tokyo"/>-->
+                <!--<div>-->
+                <!--    <label for="address">住所</label>-->
+                <!--    <input type="text" name="post[address]" id="address">-->
                 <!--</div>-->
+                
+                <div class="address">
+                    <h2>address</h2>
+                    <input type="text" name="address[0]" placeholder="tokyo"/>
+                    <input type="text" name="address[1]" placeholder="tokyo"/>
+                    <input type="text" name="address[2]" placeholder="tokyo"/>
+                </div>
+                
+                
                 
                 <div class="body">
                     <h2>Body</h2>

@@ -41,7 +41,9 @@
     <button onclick="like({{$post->id}})">いいね</button>
             <script src="{{ asset('/js/likes.js')}}"></script>
     
-
+            @foreach($post->places as $place)   
+            {{ $place->address }}
+            @endforeach
 	        
        </div>
        <div class='footer'>
