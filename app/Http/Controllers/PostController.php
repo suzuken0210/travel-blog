@@ -94,11 +94,11 @@ class PostController extends Controller
         return view('posts/mypage', ['posts' => $posts]);
     }
     
-    // public function mypage()
-    // {
-    //     $user = auth()->user();
-    //     $posts = $user->posts;
-    //     return view('mypage', compact('user', 'posts'));
-    // }
+    public function adsearch(Request $request, Post $post)
+    {
+         $adsearch = Place::where('address', $request->input('address') )->first();
+         return view('posts/index')->with(['posts' => $adsearch->posts()->paginate(3)]);
+        
+    }
     
 }
