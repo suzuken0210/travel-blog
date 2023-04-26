@@ -4,12 +4,19 @@
 <x-app-layout>
     <head>
         <meta charset="utf-8">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>travel-blog</title>
 
         <!-- Fonts --> 
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+       
+       @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        
        
     </head>
    <body class="antialiased">
@@ -38,8 +45,21 @@
                 
             </script>
              
-    <button onclick="like({{$post->id}})">いいね</button>
-            <script src="{{ asset('/js/likes.js')}}"></script>
+            @auth
+                <!-- Post.phpに作ったisLikedByメソッドをここで使用 -->
+                @if (!$post->isLikedBy(Auth::user()))
+                    <span class="likes">
+                        <i class="fas fa-heart like-toggle" data-post-id="{{ $post->id }}"></i>
+                    <span class="like-counter">{{$post->likes_count}}</span>
+                    </span><!-- /.likes -->
+                @else
+                    <span class="likes">
+                        <i class="fas fa-heart heart like-toggle liked" data-post-id="{{ $post->id }}"></i>
+                    <span class="like-counter">{{$post->likes_count}}</span>
+                    </span><!-- /.likes -->
+                @endif
+                @endauth
+            
     
 
 	        
