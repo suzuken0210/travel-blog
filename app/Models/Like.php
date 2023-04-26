@@ -4,40 +4,28 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+// use app\Http\Controllsers\Like;
 
 class Like extends Model
 {
     use HasFactory;
     
-    //多対多のリレーションを書く
-    public function likes()
-    {
-        return $this->belongsToMany('App\Models\Post','likes','user_id','post_id')->withTimestamps();
-    }
+    // 配列内の要素を書き込み可能にする
+  protected $fillable = ['post_id','user_id'];
 
-    //この投稿に対して既にlikeしたかどうかを判別する
-    public function isLike($postId)
-    {
-      return $this->likes()->where('post_id',$postId)->exists();
-    }
+  public function post()
+  {
+    return $this->belongsTo(Post::class);
+  }
 
-    //isLikeを使って、既にlikeしたか確認したあと、いいねする（重複させない）
-    public function like($postId)
+  public function user()
+  {
+    return $this->belongsTo(User::class);
+  }
+  
+  // 「いいね」が既にされているかどうかを確認するための関数
+    public static function like_exist($user_id, $post_id)
     {
-      if($this->isLike($postId)){
-        //もし既に「いいね」していたら何もしない
-      } else {
-        $this->likes()->attach($postId);
-      }
-    }
-
-    //isLikeを使って、既にlikeしたか確認して、もししていたら解除する
-    public function unlike($postId)
-    {
-      if($this->isLike($postId)){
-        //もし既に「いいね」していたら消す
-        $this->likes()->detach($postId);
-      } else {
-      }
+        return Like::where('user_id', $user_id)->where('post_id', $post_id)->exists();
     }
 }

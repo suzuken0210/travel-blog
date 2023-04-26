@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Cloudinary;
 use GuzzleHttp\Client;
+use App\Models\Like;
 use App\Models\User;
 use App\Models\Place;
 use Illuminate\Support\Facades\Auth;
@@ -94,11 +95,65 @@ class PostController extends Controller
         return view('posts/mypage', ['posts' => $posts]);
     }
     
+
+    public function like(Request $request)
+    {
+        $user_id = Auth::user()->id; //1.ログインユーザーのid取得
+        $post_id = $request->post_id; //2.投稿idの取得
+        $already_liked = Like::where('user_id', $user_id)->where('post_id', $post_id)->first(); //3.
+
+        if (!$already_liked) { //もしこのユーザーがこの投稿にまだいいねしてなかったら
+            $like = new Like; //4.Likeクラスのインスタンスを作成
+            $like->post_id = $post_id; //Likeインスタンスにpost_id,user_idをセット
+            $like->user_id = $user_id;
+            $like->save();
+        } else { //もしこのユーザーがこの投稿に既にいいねしてたらdelete
+            Like::where('post_id', $post_id)->where('user_id', $user_id)->delete();
+        }
+        //5.この投稿の最新の総いいね数を取得
+        $post_likes_count = Post::withCount('likes')->findOrFail($post_id)->likes_count;
+        $param = [
+            'post_likes_count' => $post_likes_count,
+        ];
+        return response()->json($param); //6.JSONデータをjQueryに返す
+    }
+    
+    // // only()の引数内のメソッドはログイン時のみ有効
+    // public function __construct()
+    // {
+    //     $this->middleware(['auth', 'verified'])->only(['like', 'unlike']);
+    // }
+
     public function adsearch(Request $request, Post $post)
     {
          $adsearch = Place::where('address', $request->input('address') )->first();
          return view('posts/index')->with(['posts' => $adsearch->posts()->paginate(3)]);
         
     }
+
+    
+    /*
+    public function like(Post $postid, Request $request)
+    {
+        // dd($postid);
+        Like::create([
+          'post_id' => $postid,
+          'user_id' => Auth::id(),
+        ]);
+    
+        session()->flash('success', 'You Liked the Reply.');
+    
+        return redirect()->back();
+    }
+    
+    public function unlike(Post $postid, Request $request)
+    {
+        $like = Like::where('post_id', $id)->where('user_id', Auth::id())->first();
+        $like->delete();
+    
+        session()->flash('success', 'You Unliked the Reply.');
+    
+        return redirect()->back();
+    }*/
     
 }
