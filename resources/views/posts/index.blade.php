@@ -26,6 +26,12 @@
           <input type="submit" value="検索">
         </form>
         
+        <form method="get" action="/adsearch">
+          <input type="text" name="address" placeholder="adサーチ">
+          <input type="submit" value="検索">
+        </form>
+        
+        
         
           {{--　<input type="datetime-local" name="schedule">　--}}
             <form action="/schedule" method="get">

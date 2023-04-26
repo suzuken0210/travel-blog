@@ -8,6 +8,7 @@ use Cloudinary;
 use GuzzleHttp\Client;
 use App\Models\Like;
 use App\Models\User;
+use App\Models\Place;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
@@ -42,7 +43,29 @@ class PostController extends Controller
         $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
         $input += ['image_url' => $image_url];
         $post->fill($input)->save();
+        
+        
+        // dd($request['address']);
+        for($i=0; $i<3; $i++){
+            $place = new Place();
+            // dd($place->where('address', $request['address'][(string)$i])->exists());
+            $place->address = $request['address'][(string)$i];
+            // dd(is_null($place->address));
+            
+            if (!is_null($place->address)){
+                if(!$place->where('address', $request['address'][(string)$i])->exists()){
+                    $place->save();
+                }
+                
+                $post->places()->attach($place->where('address', $request['address'][(string)$i])->first()->id); 
+            }
+            
+        }
+        
         return redirect('/posts/' . $post->id);
+        
+        
+        
     }
     
     public function search(Request $request, Post $post)
@@ -72,6 +95,7 @@ class PostController extends Controller
         return view('posts/mypage', ['posts' => $posts]);
     }
     
+
     public function like(Request $request)
     {
         $user_id = Auth::user()->id; //1.ログインユーザーのid取得
@@ -99,6 +123,14 @@ class PostController extends Controller
     // {
     //     $this->middleware(['auth', 'verified'])->only(['like', 'unlike']);
     // }
+
+    public function adsearch(Request $request, Post $post)
+    {
+         $adsearch = Place::where('address', $request->input('address') )->first();
+         return view('posts/index')->with(['posts' => $adsearch->posts()->paginate(3)]);
+        
+    }
+
     
     /*
     public function like(Post $postid, Request $request)

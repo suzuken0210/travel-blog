@@ -45,6 +45,7 @@
                 
             </script>
              
+
             @auth
                 <!-- Post.phpに作ったisLikedByメソッドをここで使用 -->
                 @if (!$post->isLikedBy(Auth::user()))
@@ -60,8 +61,11 @@
                 @endif
                 @endauth
             
-    
 
+    
+            @foreach($post->places as $place)   
+            {{ $place->address }}
+            @endforeach
 	        
        </div>
        <div class='footer'>
