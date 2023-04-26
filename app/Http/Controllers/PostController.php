@@ -21,6 +21,8 @@ class PostController extends Controller
     
     public function show(Post $post)
     {
+        
+        $post = $post->withCount('likes')->orderByDesc('updated_at')->first();
         // dd($post);
         return view('posts/show')->with(['post' => $post]);
     }
@@ -89,7 +91,7 @@ class PostController extends Controller
     public function mypage(Post $post)
     {
         $user_id = Auth()->id();
-        $posts = Post::where('user_id', $user_id)->get();
+        $posts = Post::where('user_id', $user_id)->Paginate(3);
         
         // dd($user);
         return view('posts/mypage', ['posts' => $posts]);
