@@ -20,24 +20,6 @@
         <h1>Blog Name</h1>
         <a href='/posts/create'>create</a>
         
-        
-        <!--<form method="get" action="/search">-->
-        <!--  <input type="text" name="spot" placeholder="検索語句を入力">-->
-        <!--  <input type="submit" value="検索">-->
-        <!--</form>-->
-        
-        
-        <!--  {{--　<input type="datetime-local" name="schedule">　--}}-->
-        <!--    <form action="/schedule" method="get">-->
-        <!--        <label for="from">from:</label>-->
-        <!--        <input type="date" name="from" id="from" required>-->
-        <!--        <label for="until">until:</label>-->
-        <!--        <input type="date" name="until" id="until" required>-->
-        <!--        <button type="submit">Search</button>-->
-        <!--    </form>-->
-            
-          
-        
         <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>
@@ -48,18 +30,15 @@
                    <h3 class='schedule'>{{ $post->schedule }}</h3> 
                    <h3>本文</h3>
                    <p class='body'>{{ $post->body }}</p>
-               </div>
-           <div>
+                </div>
+            <div>
                 <img src="{{ $post->image_url }}" alt="画像が読み込めません。" width="10%" height="10%" />
             </div>
-                   
-                </div>
             @endforeach
         </div>
-        
-        
-        
-
+        <div class='paginate'>
+            {{ $posts->links() }}
+        </div>
     </body>
     
     </x-app-layout>
