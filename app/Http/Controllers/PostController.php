@@ -21,8 +21,11 @@ class PostController extends Controller
     
     public function show(Post $post)
     {
+        // dd($post->withCount('likes')->first());
+        $post = $post->withCount('likes')->where('id',$post->id)->first();
         
-        $post = $post->withCount('likes')->orderByDesc('updated_at')->first();
+        // $post = $post->withCount('likes')->get();
+        // $post = $post->withCount('likes');
         // dd($post);
         return view('posts/show')->with(['post' => $post]);
     }
@@ -42,8 +45,16 @@ class PostController extends Controller
     {
         $post->user_id = \Auth::id();
         $input = $request['post'];
-        $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
-        $input += ['image_url' => $image_url];
+        if($request->file('image')){ //画像ファイルが送られた時だけ処理が実行される
+            $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+            $input += ['image_url' => $image_url];
+        }
+        
+        if($request->file('image2')){ //画像ファイルが送られた時だけ処理が実行される
+            $image_url2 = Cloudinary::upload($request->file('image2')->getRealPath())->getSecurePath();
+            $input += ['image_url2' => $image_url2];
+        }
+        
         $post->fill($input)->save();
         
         

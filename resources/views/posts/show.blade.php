@@ -31,9 +31,17 @@
                <h3>本文</h3>
                <p class='body'>{{ $post->body }}</p>
            </div>
-           <div>
-                <img src="{{ $post->image_url }}" alt="画像が読み込めません。" width="10%" height="10%" />
+            @if($post->image_url)
+            <div>
+                <img src="{{ $post->image_url }}" alt="画像が読み込めません。"width="10%" height="10%" />
             </div>
+            @endif
+            
+            @if($post->image_url2)
+            <div>
+                <img src="{{ $post->image_url2 }}" alt="画像が読み込めません。"width="10%" height="10%" />
+            </div>
+            @endif
             
 	        
 	        <div id="map" style="height:500px"></div>
@@ -59,7 +67,7 @@
                     <span class="like-counter">{{$post->likes_count}}</span>
                     </span><!-- /.likes -->
                 @endif
-                @endauth
+            @endauth
             
 
     
@@ -69,7 +77,7 @@
 	        
        </div>
        <div class='footer'>
-           <a href="/">戻る</a>
+           <a href="/">記事一覧へ戻る</a>
        </div>
     </body>
 </x-app-layout>

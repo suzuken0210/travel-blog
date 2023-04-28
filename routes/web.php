@@ -37,11 +37,9 @@ Route::get('/posts/{post}', [PostController::class, 'show'])->name('show');
 Route::get('/search', [PostController::class, 'search']);
 Route::get('/schedule', [PostController::class, 'schedule']);
 Route::get('/mypage', [PostController::class, 'mypage'])->name('mypage');
-
 Route::get('/adsearch', [PostController::class, 'adsearch']);
 
-Route::post('/like/{postId}',[LikeController::class,'store']);
-Route::post('/unlike/{postId}',[LikeController::class,'destroy']);
+
 
 
 

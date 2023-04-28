@@ -8,7 +8,7 @@
                 <x-slot name="header">
                     ここにはヘッダー
                     <meta charset="utf-8">
-                    <title>Blog</title>
+                    <title>マイページ</title>
                     <!-- Fonts -->
                     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
                     </x-slot>
@@ -17,8 +17,8 @@
         
         
     <body>
-        <h1>Blog Name</h1>
-        <a href='/posts/create'>create</a>
+        <h1>マイページ</h1>
+        <a href='/posts/create'>日記作成</a>
         
         <div class='posts'>
             @foreach ($posts as $post)
@@ -30,10 +30,10 @@
                    <h3 class='schedule'>{{ $post->schedule }}</h3> 
                    <h3>本文</h3>
                    <p class='body'>{{ $post->body }}</p>
+                   <img src="{{ $post->image_url }}" alt="画像が投稿されていません。" width="15%" height="15%" />
+                    <img src="{{ $post->image_url2 }}" alt="画像が投稿されていません。" width="15%" height="15%" />
                 </div>
-            <div>
-                <img src="{{ $post->image_url }}" alt="画像が読み込めません。" width="10%" height="10%" />
-            </div>
+            
             @endforeach
         </div>
         <div class='paginate'>

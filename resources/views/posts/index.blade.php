@@ -5,10 +5,11 @@
         <x-slot name="header">
     
             <head>
+                <script src="{{ asset('/css/index.style.js')}}"></script>
                 <x-slot name="header">
                     ここにはヘッダー
                     <meta charset="utf-8">
-                    <title>Blog</title>
+                    <title>旅行日記投稿サイト</title>
                     <!-- Fonts -->
                     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
                     </x-slot>
@@ -17,17 +18,17 @@
         
         
     <body>
-        <h1>Blog Name</h1>
-        <a href='/posts/create'>create</a>
+        <h1>旅行日記投稿サイト</h1>
+        <a href='/posts/create'>日記作成</a>
         
         
         <form method="get" action="/search">
-          <input type="text" name="spot" placeholder="検索語句を入力">
+          <input type="text" name="spot" placeholder="お気に入り観光地">
           <input type="submit" value="検索">
         </form>
         
         <form method="get" action="/adsearch">
-          <input type="text" name="address" placeholder="adサーチ">
+          <input type="text" name="address" placeholder="観光地">
           <input type="submit" value="検索">
         </form>
         
@@ -52,7 +53,8 @@
                     <h3 class='spot'>{{ $post->spot }}</h3> 
                     <h3 class='schedule'>{{ $post->schedule }}</h3> 
                     <p class='body'>{{ $post->body }}</p>
-                    <img src="{{ $post->image_url }}" alt="画像が読み込めません。" width="10%" height="10%" />
+                    <img src="{{ $post->image_url }}" alt="画像が投稿されていません。" width="15%" height="15%" />
+                    <img src="{{ $post->image_url2 }}" alt="画像が投稿されていません。" width="15%" height="15%" />
                 </div>
             @endforeach
         </div>
