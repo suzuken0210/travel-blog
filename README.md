@@ -23,7 +23,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## アプリケーション概要
 
-旅行の日記を投稿し、相互に閲覧できるアプリケーションです。自分の旅行記録を残しておけるだけでなく、旅行計画の段階で他人の日記を参考にし、地震の旅行の充実度を上げることができます。
+旅行の日記を投稿し、相互に閲覧できるアプリケーションです。自分の旅行記録を残しておけるだけでなく、旅行計画の段階で他人の日記を参考にし、自分の旅行の充実度を上げることができます。
 
 ## テスト用アカウント
 
@@ -35,29 +35,27 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ### 開発環境
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+言語：
 
-## Contributing
+フレームワーク：
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+データベース：
 
-## Code of Conduct
+その他：
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 作成経緯
 
-## Security Vulnerabilities
+
+
+## 機能一覧
+
+- 場所検索
+- あ
+- あ
+- あ
+
+
+## 機能詳細
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
