@@ -23,17 +23,15 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## アプリケーション概要
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+旅行の日記を投稿し、相互に閲覧できるアプリケーションです。自分の旅行記録を残しておけるだけでなく、旅行計画の段階で他人の日記を参考にし、地震の旅行の充実度を上げることができます。
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## テスト用アカウント
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+メールアドレス：
+パスワード：
+日記投稿機能、いいね機能、マイページが使えます。
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
+### 開発環境
 
 - **[Vehikl](https://vehikl.com/)**
 - **[Tighten Co.](https://tighten.co)**
