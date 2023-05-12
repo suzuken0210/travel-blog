@@ -28,7 +28,9 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## テスト用アカウント
 
 メールアドレス：
+
 パスワード：
+
 日記投稿機能、いいね機能、マイページが使えます。
 
 ### 開発環境
