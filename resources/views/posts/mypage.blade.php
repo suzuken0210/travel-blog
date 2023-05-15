@@ -2,43 +2,32 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     
     <x-app-layout>
-        <x-slot name="header">
-    
-            <head>
-                <x-slot name="header">
-                    ここにはヘッダー
-                    <meta charset="utf-8">
-                    <title>マイページ</title>
-                    <!-- Fonts -->
-                    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-                    </x-slot>
-            </head>
+        
         
         
         
     <body>
         <h1>マイページ</h1>
-        <a href='/posts/create'>日記作成</a>
+        <a href='/posts/create'>日記作成はここから</a>
         
         <div class='posts'>
-            @foreach ($posts as $post)
-                <div class='post'>
-                    <h1 class='title'>
+            <div class="flex flex-row gap-4 ">
+                @foreach ($posts as $post)
+                    <div class='post text-center border border-gray-400 p-4 rounded-lg shadow-md'>
                        <a href="/posts/{{ $post->id }}"><h2 class='title'>{{ $post->title }}</h2></a>
-                   </h1>
-                    <h3 class='spot'>{{ $post->spot }}</h3> 
-                   <h3 class='schedule'>{{ $post->schedule }}</h3> 
-                   <h3>本文</h3>
-                   <p class='body'>{{ $post->body }}</p>
-                   <img src="{{ $post->image_url }}" alt="画像が投稿されていません。" width="15%" height="15%" />
-                    <img src="{{ $post->image_url2 }}" alt="画像が投稿されていません。" width="15%" height="15%" />
-                </div>
-            
-            @endforeach
+                       <a href="/posts/{{ $post->id }}"><h3 class='schedule'>{{ $post->schedule }}</h3></a>
+                       <a href="/posts/{{ $post->id }}"><h3 class='spot'>{{ $post->spot }}</h3></a>
+                       <img src="{{ $post->image_url }}" alt="画像が投稿されていません。" width="300px" height="200px" />
+                    </div>
+                @endforeach
         </div>
-        <div class='paginate'>
-            {{ $posts->links() }}
+        
+        <div class="flex justify-center">
+            <div class='paginate'>
+                {{ $posts->links() }}
+            </div>
         </div>
+        
     </body>
     
     </x-app-layout>

@@ -16,7 +16,7 @@ class PostController extends Controller
     public function index(Post $post)
     {
         // dd($post);
-        return view('posts/index')->with(['posts' => $post->getPaginateByLimit(3)]); 
+        return view('posts/index')->with(['posts' => $post->getPaginateByLimit(5)]); 
     }
     
     public function show(Post $post)
@@ -50,16 +50,13 @@ class PostController extends Controller
             $input += ['image_url' => $image_url];
         }
         
-        if($request->file('image2')){ //画像ファイルが送られた時だけ処理が実行される
-            $image_url2 = Cloudinary::upload($request->file('image2')->getRealPath())->getSecurePath();
-            $input += ['image_url2' => $image_url2];
-        }
+        
         
         $post->fill($input)->save();
         
         
         // dd($request['address']);
-        for($i=0; $i<3; $i++){
+        for($i=0; $i<16; $i++){
             $place = new Place();
             // dd($place->where('address', $request['address'][(string)$i])->exists());
             $place->address = $request['address'][(string)$i];
@@ -102,7 +99,7 @@ class PostController extends Controller
     public function mypage(Post $post)
     {
         $user_id = Auth()->id();
-        $posts = Post::where('user_id', $user_id)->Paginate(3);
+        $posts = Post::where('user_id', $user_id)->Paginate(5);
         
         // dd($user);
         return view('posts/mypage', ['posts' => $posts]);
@@ -130,12 +127,6 @@ class PostController extends Controller
         ];
         return response()->json($param); //6.JSONデータをjQueryに返す
     }
-    
-    // // only()の引数内のメソッドはログイン時のみ有効
-    // public function __construct()
-    // {
-    //     $this->middleware(['auth', 'verified'])->only(['like', 'unlike']);
-    // }
 
     public function adsearch(Request $request, Post $post)
     {
@@ -143,30 +134,5 @@ class PostController extends Controller
          return view('posts/index')->with(['posts' => $adsearch->posts()->paginate(3)]);
         
     }
-
-    
-    /*
-    public function like(Post $postid, Request $request)
-    {
-        // dd($postid);
-        Like::create([
-          'post_id' => $postid,
-          'user_id' => Auth::id(),
-        ]);
-    
-        session()->flash('success', 'You Liked the Reply.');
-    
-        return redirect()->back();
-    }
-    
-    public function unlike(Post $postid, Request $request)
-    {
-        $like = Like::where('post_id', $id)->where('user_id', Auth::id())->first();
-        $like->delete();
-    
-        session()->flash('success', 'You Unliked the Reply.');
-    
-        return redirect()->back();
-    }*/
     
 }
