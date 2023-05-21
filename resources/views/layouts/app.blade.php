@@ -10,9 +10,18 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+            <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyC96c6lhvoTpYKKm-hU2Ug89Lkvz0lipLQ&callback=initgeocoder" async defer></script>
+            </script>
+            
+            <script src="{{ asset('/js/map.js')}}">
+                
+            </script>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
