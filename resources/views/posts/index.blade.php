@@ -7,11 +7,11 @@
         
         
     <body>
-        <h1>記事一覧</h1>
-        <a href='/posts/create'>日記作成はここから！</a>
+        <img src='{{ asset('storage/tophead.png') }}'>
+        <!--<a href='/posts/create'>日記作成はここから！</a>-->
         
         
-        <div class='search flex flex-row gap-4 '>
+        <div class='search flex flex-row gap-4 justify-center items-center'>
             <div class=''>
                 <form method="get" action="/search">
                   <input type="text" name="spot" placeholder="お気に入り観光地">

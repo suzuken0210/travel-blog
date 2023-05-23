@@ -7,8 +7,8 @@
         
         
     <body>
-        <h1>マイページ</h1>
-        <a href='/posts/create'>日記作成はここから</a>
+        <img src='{{ asset('storage/mypage.png') }}'>
+        <!--<a href='/posts/create'>日記作成はここから</a>-->
         
         <div class='posts'>
             <div class="flex flex-row gap-4 ">

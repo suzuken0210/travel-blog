@@ -26,8 +26,8 @@
         @endauth
        
        <div class='content'>
-            <div class='flex'>
-               <div class='w-3/4 border border-gray-300 p-4'>
+            <div class='flex justify-between'>
+               <div class='w-3/4 border border-gray-300 p-4 flex-grow'>
                    <h3><font size="5">旅行日</font></h3>
                    <h3 class='schedule border border-gray-300 p-4'>{{ $post->schedule }}</h3> 
                    <h3><font size="5">お気に入り観光地</font></h3>
@@ -38,24 +38,16 @@
                         @endforeach
                </div>
                
-
-               <h3 class='schedule'>{{ $post->schedule }}</h3> 
-               <h3>本文</h3>
-               <p class='body'>{{ $post->body }}</p>
-           </div>
-            @if($post->image_url)
-            <div>
-                <img src="{{ $post->image_url }}" alt="画像が読み込めません。"width="10%" height="10%" />
-
+               <div>
                 @if($post->image_url)
-                <div class='w-3/4'>
+                <div class='flex-grow'>
                     <h3>お気に入り観光地の写真</h3>
-                    <img src="{{ $post->image_url }}" alt="画像が読み込めません。"width="50%" height="50%" />
+                    <img src="{{ $post->image_url }}" alt="画像が読み込めません。"width="600px" height="400px" />
                 </div>
                 @endif
-
+                
             </div>
-        
+           </div>
             <h3><font size="6">旅行日記</font></h3>
                  <p class='body'>{{ $post->body }}</p>
         
