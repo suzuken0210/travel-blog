@@ -1,11 +1,5 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://kentaapp.herokuapp.com" target="_blank"><img src="https://github.com/suzuken0210/travel-blog/assets/123449553/3bc27298-d968-4a37-a273-ae356043432b" width="400"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
 ## アプリケーション名
 
@@ -49,33 +43,28 @@
 
 ## 機能詳細
 
-#日記一覧画面、日記作成画面、マイページへの遷移
+###日記一覧画面、日記作成画面、マイページへの遷移
 
-<img src='{{ asset('image/navi.png') }}'>
+<img width="443" alt="navi" src="https://github.com/suzuken0210/travel-blog/assets/123449553/346f541e-fea0-46e2-953c-0f82458e582b">
 
-#検索機能
+###検索機能
 
-<img src='{{ asset('image/serch.png') }}'>
+<img width="676" alt="serch" src="https://github.com/suzuken0210/travel-blog/assets/123449553/2af548f4-13b3-416d-8af4-000c4f32df71">
 
 検索ウィンドウでは、お気に入り観光地、全ての観光地、旅行日での検索が可能です。お気に入り観光地、全ての観光地では入力した地名と一致する地名が投稿された日記が表示されます。旅行日での検索はfromに開始日、untilに終了日の日付を選択すると選択した期間で旅行した日記が表示されます。
 
-#マイページ(ログイン時のみ使用可能)
+###マイページ(ログイン時のみ使用可能)
 
 マイページでは自分が投稿した日記のみを表示しています。自分の旅行を振り返り思い出に浸ることに使います。
 
-#いいね機能(ログイン時のみ使用可能)
+###いいね機能(ログイン時のみ使用可能)
 
-<img src='{{ asset('image/likes.png') }}'>
+<img width="372" alt="likes" src="https://github.com/suzuken0210/travel-blog/assets/123449553/0aabff2a-f36e-482f-bb61-85a0ac13a3b3">
 
 記事一覧画面にて気になるタイトルをクリックすると日記の詳細画面に遷移します。タイトル左下のハートマークを押すといいね数が増えていきます。他のユーザーからの自分の旅行の反応を感じることができます。取り消す場合はもう一度ハートマークを押してください。
 
-#GoogleMapの表示
+###GoogleMapの表示
 
-<img src='{{ asset('image/googlemap.png') }}'>
+<img width="950" alt="googlemap" src="https://github.com/suzuken0210/travel-blog/assets/123449553/653e87ec-377a-4e3a-8a67-09e54f16dafe">
 
 日記詳細画面下部ではお気に入り観光地の場所をGoogleMapで表示しています。他ユーザーの日記を読んで観光したくなったらすぐに場所の確認ができます。投稿時に入力された観光地を自動で緯度経度に変換する「Geocording API」により地点が登録され詳細ページにマップが表示されます。JavaScriptによりピンもつけ、視認性を向上させました。
-
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
