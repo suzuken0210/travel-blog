@@ -7,7 +7,7 @@
         
         
     <body>
-        <img src='{{ asset('storage/mypage.png') }}'>
+        <img src='{{ asset('image/mypage.png') }}'>
         <!--<a href='/posts/create'>日記作成はここから</a>-->
         
         <div class='posts'>
