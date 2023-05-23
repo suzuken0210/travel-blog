@@ -7,7 +7,7 @@
         
         
     <body>
-        <img src='{{ asset('storage/tophead.png') }}'>
+        <img src='{{ asset('image/tophead.png') }}'>
         <!--<a href='/posts/create'>日記作成はここから！</a>-->
         
         
