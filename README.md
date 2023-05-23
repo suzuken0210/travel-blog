@@ -7,19 +7,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## アプリケーション名
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+トラベルノート
 
 ## アプリケーション概要
 
@@ -27,21 +17,21 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## テスト用アカウント
 
-メールアドレス：
+メールアドレス：test@gmail.com
 
-パスワード：
+パスワード：test1234
 
 日記投稿機能、いいね機能、マイページが使えます。
 
 ### 開発環境
 
-言語：
+言語：PHP 8.0.27
 
-フレームワーク：
+フレームワーク：laravel 9.52.4
 
-データベース：
+データベース：MySQL 15.1
 
-その他：
+その他：HTML, CSS, JavaScript, Bootstrap, AWS
 
 ## 作成経緯
 私は頻繁に旅行に出かけることがあり、それぞれの旅の思い出を写真以外に残したいと思っていました。それと同時に、旅行に行く前に他人の旅行の行程を参考にできたらより自分の旅行が充実するとも思っていました。その２点を解決するために自分の日記を見返す側面と他人の日記を閲覧する側面を持つ旅行日記投稿サイトを作成しました。
@@ -51,15 +41,40 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## 機能一覧
 
-- 場所検索
-- あ
-- あ
-- あ
+- 場所名を参照する記事検索
+- マイページでは自分の投稿のみを表示
+- 記事詳細画面ではいいね機能を実装
+- 記事詳細画面ではお気に入りスポットをGooglemapで表示
 
 
 ## 機能詳細
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#日記一覧画面、日記作成画面、マイページへの遷移
+
+<img src='{{ asset('image/navi.png') }}'>
+
+#検索機能
+
+<img src='{{ asset('image/serch.png') }}'>
+
+検索ウィンドウでは、お気に入り観光地、全ての観光地、旅行日での検索が可能です。お気に入り観光地、全ての観光地では入力した地名と一致する地名が投稿された日記が表示されます。旅行日での検索はfromに開始日、untilに終了日の日付を選択すると選択した期間で旅行した日記が表示されます。
+
+#マイページ(ログイン時のみ使用可能)
+
+マイページでは自分が投稿した日記のみを表示しています。自分の旅行を振り返り思い出に浸ることに使います。
+
+#いいね機能(ログイン時のみ使用可能)
+
+<img src='{{ asset('image/likes.png') }}'>
+
+記事一覧画面にて気になるタイトルをクリックすると日記の詳細画面に遷移します。タイトル左下のハートマークを押すといいね数が増えていきます。他のユーザーからの自分の旅行の反応を感じることができます。取り消す場合はもう一度ハートマークを押してください。
+
+#GoogleMapの表示
+
+<img src='{{ asset('image/googlemap.png') }}'>
+
+日記詳細画面下部ではお気に入り観光地の場所をGoogleMapで表示しています。他ユーザーの日記を読んで観光したくなったらすぐに場所の確認ができます。投稿時に入力された観光地を自動で緯度経度に変換する「Geocording API」により地点が登録され詳細ページにマップが表示されます。JavaScriptによりピンもつけ、視認性を向上させました。
+
 
 ## License
 
